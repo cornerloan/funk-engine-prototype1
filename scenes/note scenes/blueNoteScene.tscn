@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b82oy7upwwil0"]
+
+[ext_resource type="Texture2D" uid="uid://d168n8xej4by1" path="res://assets/blue.jpg" id="1_i5vpd"]
+[ext_resource type="Script" path="res://scripts/NoteMovement.cs" id="2_6ixiy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlep7"]
+
+[node name="BlueNoteScene" type="Sprite2D"]
+scale = Vector2(1, 0.25)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_6ixiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_tlep7")
+
+[node name="Blue" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_i5vpd")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://nmje7idveisr"]
+
+[ext_resource type="Texture2D" uid="uid://cnrepebqcvduc" path="res://assets/yellow.jpg" id="1_xwihv"]
+[ext_resource type="Script" path="res://scripts/NoteMovement.cs" id="2_l45f6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kedj"]
+
+[node name="YellowNoteScene" type="Sprite2D"]
+scale = Vector2(1, 0.25)
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_l45f6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_8kedj")
+
+[node name="Yellow" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_xwihv")

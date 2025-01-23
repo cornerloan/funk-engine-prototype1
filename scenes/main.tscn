@@ -1,0 +1,124 @@
+[gd_scene load_steps=14 format=3 uid="uid://cwceak5xo47ly"]
+
+[ext_resource type="Script" path="res://scripts/NotePressed.cs" id="1_eeixy"]
+[ext_resource type="Texture2D" uid="uid://b8hgw53y6wkqe" path="res://assets/good_bar.jpg" id="2_m8xpo"]
+[ext_resource type="Texture2D" uid="uid://cnxu4aia6co0w" path="res://assets/great_bar.jpg" id="3_iea7e"]
+[ext_resource type="Texture2D" uid="uid://cwptdyow01i04" path="res://assets/perfect_bar.jpg" id="4_ptetw"]
+[ext_resource type="Texture2D" uid="uid://bect3ii1ft84m" path="res://assets/green.jpg" id="5_i4n2p"]
+[ext_resource type="Texture2D" uid="uid://cwpiotjgrbox7" path="res://assets/red.jpg" id="6_ijmx8"]
+[ext_resource type="Texture2D" uid="uid://cnrepebqcvduc" path="res://assets/yellow.jpg" id="7_wa2ii"]
+[ext_resource type="Texture2D" uid="uid://d168n8xej4by1" path="res://assets/blue.jpg" id="8_u7b3q"]
+[ext_resource type="Script" path="res://scripts/SpawnManager.cs" id="9_qcv0q"]
+
+[sub_resource type="Curve2D" id="Curve2D_xt1oa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur4f3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hswr6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mepw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_xt1oa")
+
+[node name="Tap Bar" type="Node2D" parent="."]
+position = Vector2(0, 400)
+scale = Vector2(1, 0.25)
+
+[node name="Good bar" type="Area2D" parent="Tap Bar"]
+position = Vector2(577, 500)
+scale = Vector2(1, 2.8)
+script = ExtResource("1_eeixy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tap Bar/Good bar"]
+scale = Vector2(25.6, 6.4)
+shape = SubResource("RectangleShape2D_ur4f3")
+
+[node name="GoodBar" type="Sprite2D" parent="Tap Bar/Good bar"]
+texture = ExtResource("2_m8xpo")
+
+[node name="Great bar" type="Area2D" parent="Tap Bar"]
+position = Vector2(577, 500)
+scale = Vector2(1, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tap Bar/Great bar"]
+scale = Vector2(25.6, 6.4)
+shape = SubResource("RectangleShape2D_hswr6")
+
+[node name="GreatBar" type="Sprite2D" parent="Tap Bar/Great bar"]
+texture = ExtResource("3_iea7e")
+
+[node name="Perfect bar" type="Area2D" parent="Tap Bar"]
+position = Vector2(577, 500)
+scale = Vector2(1, 1.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tap Bar/Perfect bar"]
+scale = Vector2(25.6, 6.4)
+shape = SubResource("RectangleShape2D_5mepw")
+
+[node name="PerfectBar" type="Sprite2D" parent="Tap Bar/Perfect bar"]
+texture = ExtResource("4_ptetw")
+
+[node name="Green" type="Sprite2D" parent="Tap Bar"]
+visible = false
+position = Vector2(641, 500)
+texture = ExtResource("5_i4n2p")
+
+[node name="Red" type="Sprite2D" parent="Tap Bar"]
+visible = false
+position = Vector2(385, 500)
+texture = ExtResource("6_ijmx8")
+
+[node name="Yellow" type="Sprite2D" parent="Tap Bar"]
+visible = false
+position = Vector2(513, 500)
+texture = ExtResource("7_wa2ii")
+
+[node name="Blue" type="Sprite2D" parent="Tap Bar"]
+visible = false
+position = Vector2(769, 500)
+texture = ExtResource("8_u7b3q")
+
+[node name="Center line" type="Sprite2D" parent="Tap Bar"]
+position = Vector2(577, 500)
+scale = Vector2(1, 0.05)
+texture = ExtResource("2_m8xpo")
+
+[node name="SpawnManager" type="Node2D" parent="."]
+script = ExtResource("9_qcv0q")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreText" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 400.0
+offset_right = 1090.0
+offset_bottom = 727.0
+bbcode_enabled = true
+text = "[center]Perfect
+
+Score:
+0
+
+Combo:
+0
+
+Multiplier:
+1x
+[/center]"
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 300.0
+offset_right = 1090.0
+offset_bottom = 340.0
