@@ -6,7 +6,7 @@ public partial class NoteMovement : Area2D
     private float movementMultiplier = 6;
 
     // Add a property to specify the note's color
-    public string NoteColor { get; set; }
+    [Export] public string NoteColor { get; set; }
 
     public override void _Ready()
     {
